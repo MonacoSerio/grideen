@@ -17,12 +17,15 @@ elements.forEach(element => revealOnScroll.observe(element));
 
 const codedStructure = document.querySelector(".coded-structure");
 
-window.addEventListener("scroll", () => {
+function updateParallax() {
   if (!codedStructure) return;
 
   const move = window.scrollY * 0.08;
 
-codedStructure.style.transform =
-  `translate(-50%, calc(-50% + ${move}px))`;
+  codedStructure.style.transform =
+    `translate(-50%, calc(-50% + ${move}px))`;
+}
 
-});
+updateParallax();
+
+window.addEventListener("scroll", updateParallax);
